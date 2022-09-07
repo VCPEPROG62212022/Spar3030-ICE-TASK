@@ -8,17 +8,31 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Label x:Name="lblWelcome" Content="SPAR3030 LOGIN" HorizontalAlignment="Left" Margin="281,26,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" FontStyle="Italic"/>
-        <Label x:Name="lblName" Content="Name:" HorizontalAlignment="Left" Margin="76,90,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblSurname" Content="Surname:" HorizontalAlignment="Left" Margin="79,132,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblEmail" Content="Email:" HorizontalAlignment="Left" Margin="76,175,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblPassword" Content="Password:" HorizontalAlignment="Left" Margin="76,217,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="193,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtSurname" HorizontalAlignment="Left" Margin="193,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="193,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="193,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="281,265,0,0" VerticalAlignment="Top" Width="208"/>
+        <Label x:Name="lblEmail" Content="Email:" HorizontalAlignment="Left" Margin="90,95,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblPassword" Content="Password:" HorizontalAlignment="Left" Margin="90,137,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="206,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="206,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="78,271,0,0" VerticalAlignment="Top" Width="208"/>
         <Button x:Name="btnDriver" Content="Driver" HorizontalAlignment="Left" Margin="608,385,0,0" VerticalAlignment="Top" Width="109"/>
         <Button x:Name="btnPacker" Content="Packer" HorizontalAlignment="Left" Margin="51,385,0,0" VerticalAlignment="Top" Width="111"/>
+        <Label x:Name="lblName_Copy1" Content="Name:" HorizontalAlignment="Left" Margin="439,95,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblSurname_Copy1" Content="Surname:" HorizontalAlignment="Left" Margin="442,137,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblEmail_Copy1" Content="Email:" HorizontalAlignment="Left" Margin="439,180,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblPassword_Copy1" Content="Password:" HorizontalAlignment="Left" Margin="439,222,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtName_Copy1" HorizontalAlignment="Left" Margin="556,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtSurname_Copy1" HorizontalAlignment="Left" Margin="556,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtEmail_Copy1" HorizontalAlignment="Left" Margin="556,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtPassword_Copy1" HorizontalAlignment="Left" Margin="556,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnLogin_Copy1" Content="Login" HorizontalAlignment="Left" Margin="442,271,0,0" VerticalAlignment="Top" Width="208"/>
+        <Label x:Name="lblName_Copy2" Content="Name:" HorizontalAlignment="Left" Margin="439,95,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblSurname_Copy2" Content="Surname:" HorizontalAlignment="Left" Margin="442,137,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblEmail_Copy2" Content="Email:" HorizontalAlignment="Left" Margin="439,180,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblPassword_Copy2" Content="Password:" HorizontalAlignment="Left" Margin="439,222,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtName_Copy2" HorizontalAlignment="Left" Margin="556,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtSurname_Copy2" HorizontalAlignment="Left" Margin="556,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtEmail_Copy2" HorizontalAlignment="Left" Margin="556,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtPassword_Copy2" HorizontalAlignment="Left" Margin="556,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnReg" Content="Register" HorizontalAlignment="Left" Margin="442,271,0,0" VerticalAlignment="Top" Width="208"/>
 
     </Grid>
 </Window>
