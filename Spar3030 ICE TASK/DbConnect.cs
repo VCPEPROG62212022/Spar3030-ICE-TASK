@@ -1,26 +1,29 @@
 ﻿using System;
 using System.CodeDom;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Markup;
 using System.Xml.Linq;
 
 namespace Spar3030_ICE_TASK
 {
-    internal class DbConnect:Connections
+    internal class DbConnect : Connections
     {
-        public readonly string connectionString = "Server=tcp:classdb.database.windows.net,1433;Initial Catalog=Student;Persist Security Info=False;User ID=adminadmin;Password=@Password1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        private static int UserID;
+        public readonly string connectionString = "Server=tcp:classdb.database.windows.net,1433;Initial Catalog=spar;Persist Security Info=False;User ID=adminadmin;Password=@Password1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
         public bool AddOrder(int[] Item, bool[] Packed)
         {
             throw new NotImplementedException();
         }
 
-        public void AddUser(string Name, string Surname, string Address, 
+        public void AddUser(string Name, string Surname, string Address,
             string Email, string PhoneNumber, string PasswordNULL)
         {
             try
@@ -51,13 +54,13 @@ namespace Spar3030_ICE_TASK
 
         public bool CheckLogin(string Email, string Password)
         {
-            int ID =0;
+            int ID = 0;
             try
             {
-               using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    String sql = "SELECT UserID FROM users where Email = @Email " +
+                    String sql = "SELECT UserID FROM Users where Email = @Email " +
                         "AND Password=@Password;";
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
@@ -67,7 +70,8 @@ namespace Spar3030_ICE_TASK
                         {
                             while (reader.Read())
                             {
-                                ID= reader.GetInt32(0);
+                                ID = reader.GetInt32(0);
+                                UserID = ID;
                             }
                         }
                     }
@@ -75,12 +79,14 @@ namespace Spar3030_ICE_TASK
             }
             catch (SqlException e)
             {
+                MessageBox.Show(e.ToString());
                 Console.WriteLine(e.ToString());
             }
-            if (ID ==0)
+            if (ID == 0)
             {
                 return false;
-            }else
+            }
+            else
             {
                 return true;
             }
@@ -88,7 +94,32 @@ namespace Spar3030_ICE_TASK
 
         public string[] GetCat()
         {
-            throw new NotImplementedException();
+            String[] strings = new string[6];
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                // SELECT DISTINCT - is to select the unique values in that column
+                String sql = "SELECT DISTINCT ProductType FROM Product";
+                SqlCommand cmd = new SqlCommand(sql, connection);
+
+                SqlDataReader reader;
+                try
+                {
+                    int x = 0;
+                    connection.Open();
+                    reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        //string productsDetails = reader.GetString("ProductType");
+                        strings[x] = reader["ProductType"].ToString();
+                        x++;
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Error happened in the cmd " + e.ToString());
+                }
+                return strings;
+            }
         }
 
         public string[] GetOrderNo()
@@ -101,9 +132,41 @@ namespace Spar3030_ICE_TASK
             throw new NotImplementedException();
         }
 
-        public Product[] GetProducts(string Cat)
+        public List<Product> GetProducts(string Cat)
         {
-            throw new NotImplementedException();
+            List<Product> ArrProducts = new List<Product>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                String sql = "SELECT * FROM Product WHERE ProductType ='" + Cat
+                    + "'";
+                SqlCommand cmd = new SqlCommand(sql, connection);
+                SqlDataReader reader;
+                try
+                {
+                    connection.Open();
+                    reader = cmd.ExecuteReader();
+                    int x = 0;
+                    while (reader.Read())
+                    {//ProductName, ProductPrice
+                        Product p = new Product();
+                        p.ProductID = Convert.ToInt32(reader["ProductID"].ToString());
+                        p.ProductPrice = Convert.ToDouble(reader["ProductPrice"].ToString());
+                        p.ProductName = reader["ProductName"].ToString();
+                        p.ProductType = reader["ProductType"].ToString();
+                        ArrProducts.Add(p);
+                        x++;
+
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error on adding products");
+                }
+
+
+            }
+            return ArrProducts;
         }
     }
 }
+

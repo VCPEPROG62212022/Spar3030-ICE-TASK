@@ -27,7 +27,18 @@ namespace Spar3030_ICE_TASK
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            DbConnect db = new DbConnect();
+            Boolean bResult =db.CheckLogin(txtEmail.Text,txtPassword.Text);
 
+            if (bResult==true)
+            {
+                Order order = new Order();
+                this.Content = order;
+            }
+            else
+            {
+                MessageBox.Show("User details don't match");
+            }
         }
 
         private void btnReg_Click(object sender, RoutedEventArgs e)
@@ -35,6 +46,13 @@ namespace Spar3030_ICE_TASK
             DbConnect db = new DbConnect();
             db.AddUser(txtName_Copy1.Text, txtSurname_Copy1.Text, txtAddress.Text
                 , txtEmail_Copy1.Text, txtPhone.Text, txtPassword_Copy1.Text);
+
+            txtName_Copy1.Text = "";
+            txtSurname_Copy1.Text = ""; 
+            txtAddress.Text = "";
+            txtEmail_Copy1.Text = "";
+            txtPhone.Text = "";
+            txtPassword_Copy1.Text = "";
         }
     }
 }

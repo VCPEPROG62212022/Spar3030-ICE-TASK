@@ -11,9 +11,10 @@
     <Grid>
         <Label x:Name="lblOrders" Content="ORDERS" HorizontalAlignment="Left" Margin="309,22,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" FontStyle="Italic" Width="129"/>
         <Label x:Name="lbl_Search" Content="Search Category of food:" HorizontalAlignment="Left" Margin="79,79,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cmbFoodCat" HorizontalAlignment="Left" Margin="254,83,0,0" VerticalAlignment="Top" Width="120"/>
-        <ListBox x:Name="lstOrderOutput"  Margin="400,83,76,37"/>
-        <Button x:Name="btnCheckout" Content="Checkout" HorizontalAlignment="Left" Margin="400,420,0,0" VerticalAlignment="Top" Width="324"/>
+        <ComboBox x:Name="cmbFoodCat" HorizontalAlignment="Left" Margin="254,73,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbFoodCat_SelectionChanged"/>
+        <ListBox x:Name="lstOutput"  Margin="50,105,426,15"/>
+        <Button x:Name="btnCheckout" Content="Checkout" HorizontalAlignment="Left" Margin="400,420,0,0" VerticalAlignment="Top" Width="324" Click="btnCheckout_Click"/>
+        <ListBox x:Name="lstOrderOutput_Copy"  Margin="400,83,76,37"/>
 
     </Grid>
 </Page>

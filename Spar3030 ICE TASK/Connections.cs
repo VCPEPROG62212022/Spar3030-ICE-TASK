@@ -14,7 +14,7 @@ namespace Spar3030_ICE_TASK
         public Boolean CheckLogin(String Email,String Password);
 
         public String[] GetCat();//Gets Different types of products
-        public Product[] GetProducts(String Cat);
+        public List<Product> GetProducts(String Cat);
 
         public Boolean AddOrder(int[] Item, Boolean[] Packed);
         public String[] GetOrderNo();
