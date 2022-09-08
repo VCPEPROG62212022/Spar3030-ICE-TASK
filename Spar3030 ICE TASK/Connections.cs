@@ -9,7 +9,7 @@ namespace Spar3030_ICE_TASK
 {
     public interface Connections
     {
-        public String AddUser(String Name, String Surname, String Address,
+        public void AddUser(String Name, String Surname, String Address,
             String Email, String PhoneNumber, String PasswordNULL);
         public Boolean CheckLogin(String Email,String Password);
 

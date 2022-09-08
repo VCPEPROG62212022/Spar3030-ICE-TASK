@@ -24,5 +24,17 @@ namespace Spar3030_ICE_TASK
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnReg_Click(object sender, RoutedEventArgs e)
+        {
+            DbConnect db = new DbConnect();
+            db.AddUser(txtName_Copy1.Text, txtSurname_Copy1.Text, txtAddress.Text
+                , txtEmail_Copy1.Text, txtPhone.Text, txtPassword_Copy1.Text);
+        }
     }
 }
